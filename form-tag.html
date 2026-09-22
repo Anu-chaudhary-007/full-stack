@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /*
+        input{
+            font-size:40px;
+            border-width:0 0 2px 0px;
+        }
+        input:required{
+            border-color: red;
+        }
+        input:optional{
+            border-color: green;
+        }
+        input:disabled{
+            background-color: grey;
+            color:white;
+        }
+        
+        button:not(:hover){
+            border-color: rgb(12, 228, 8);
+
+
+        }
+        input:in-range{
+            color:green;
+
+        }
+        input:out-of-range{
+            color:red;
+        }
+            */
+        div:has(h1){
+            background-color:black;
+            color:white;
+        } 
+        div:not(:has(h1)){
+            background-color: aqua;
+        }
+       
+    </style>
+</head>
+<body>
+   
+    <div>
+        <h1>Heading 1 </h1>
+    </div>
+    <div>
+        <h2>Heading 2</h2>
+    </div>
+
+
+</body>
+</html>

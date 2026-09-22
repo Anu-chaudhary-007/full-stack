@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cars</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .box {
+            width: 75vw;
+            height: 85vh;
+
+            margin: 0 auto 120px;
+
+            border-radius: 25px;
+            overflow: hidden;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: sticky;
+            top: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* First card */
+        #box1 {
+            background: black;
+            z-index: 1;
+        }
+
+        /* Car cards */
+        #box2 {
+            background-image: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7");
+            z-index: 2;
+        }
+
+        #box3 {
+            background-image: url("https://images.unsplash.com/photo-1542282088-72c9c27ed0cd");
+            z-index: 3;
+        }
+
+        #box4 {
+            background-image: url("https://images.unsplash.com/photo-1504215680853-026ed2a45def");
+            z-index: 4;
+        }
+
+        #box5 {
+            background-image: url("https://images.unsplash.com/photo-1503736334956-4c8f8e92946d");
+            z-index: 5;
+        }
+
+        /* Dark overlay */
+        .box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        /* CARS text */
+        #box1 p {
+            position: relative;
+            z-index: 10;
+
+            color: white;
+            font-size: 80px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            text-shadow: 3px 3px 10px black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="box" id="box1">
+            <p>CARS</p>
+        </div>
+
+        <div class="box" id="box2"></div>
+
+        <div class="box" id="box3"></div>
+
+        <div class="box" id="box4"></div>
+
+        <div class="box" id="box5"></div>
+
+    </div>
+
+</body>
+
+</html>
