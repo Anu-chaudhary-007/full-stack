@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <h2>Shop</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">About</a>
+  </div>
+</nav>
+
+<main>
+
+<aside>
+  <h3>Filters</h3>
+
+  <label>Category</label>
+  <select id="cat">
+    <option value="all">All</option>
+    <option value="Shoes">Shoes</option>
+    <option value="Watch">Watch</option>
+    <option value="Bag">Bag</option>
+    <option value="Headphones">Headphones</option>
+  </select>
+
+  <label>Price</label>
+  <input type="range" id="price" min="20" max="200" value="200">
+
+</aside>
+
+<section>
+  <h1>Products</h1>
+  <div class="grid" id="grid"></div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

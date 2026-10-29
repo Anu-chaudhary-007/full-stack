@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Whack A Mole</title>
+</head>
+<body>
+
+<h2>Score: <span id="score">0</span></h2>
+<h2>Time: <span id="timer">30</span></h2>
+
+<div id="board"></div>
+
+<script>
+let score=0;
+let mole=-1;
+let timeLeft=30;
+
+const board=document.getElementById("board");
+
+for(let i=0;i<9;i++){
+    let btn=document.createElement("button");
+    btn.textContent="";
+    btn.style.width="60px";
+    btn.style.height="60px";
+    btn.style.margin="5px";
+
+    btn.onclick=function(){
+        if(timeLeft>0 && i===mole){
+            score++;
+            document.getElementById("score").innerText=score;
+            newMole();
+        }
+    };
+
+    board.appendChild(btn);
+
+    if((i+1)%3===0){
+        board.appendChild(document.createElement("br"));
+    }
+}
+
+function newMole(){
+    let buttons=document.querySelectorAll("button");
+
+    buttons.forEach(btn=>{
+        btn.textContent="";
+    });
+
+    mole=Math.floor(Math.random()*9);
+    buttons[mole].textContent="🐹";
+}
+
+newMole();
+
+let moleTimer=setInterval(newMole,500);
+
+let timer=setInterval(()=>{
+    timeLeft--;
+    document.getElementById("timer").innerText=timeLeft;
+
+    if(timeLeft<=0){
+        clearInterval(timer);
+        clearInterval(moleTimer);
+
+        let buttons=document.querySelectorAll("button");
+        buttons.forEach(btn=>{
+            btn.disabled=true;
+            btn.textContent="";
+        });
+
+        alert("Game Over!\nFinal Score: "+score);
+    }
+},1000);
+</script>
+
+</body>
+</html>

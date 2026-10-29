@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+</head>
+<body>
+
+    <h1 id="timer">15:00</h1>
+
+    <input type="number" id="input1" placeholder="Enter minutes">
+
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+
+    <script>
+        let totalSeconds = 15 * 60;
+        let intervalId = null;
+
+        function updateDisplay() {
+            let minutes = Math.floor(totalSeconds / 60);
+            let seconds = totalSeconds % 60;
+
+            document.getElementById("timer").innerText =
+                `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        }
+
+        function startTimer() {
+            stopTimer();
+
+            let minutes = Number(document.getElementById("input1").value);
+
+            if (minutes > 0) {
+                totalSeconds = minutes * 60;
+            }
+
+            updateDisplay();
+
+            intervalId = setInterval(() => {
+                if (totalSeconds > 0) {
+                    totalSeconds--;
+                    updateDisplay();
+                } else {
+                    stopTimer();
+                    alert("Time's up!");
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+
+        function resetTimer() {
+            stopTimer();
+
+            let minutes = Number(document.getElementById("input1").value);
+
+            if (minutes > 0) {
+                totalSeconds = minutes * 60;
+            } else {
+                totalSeconds = 15 * 60;
+            }
+
+            updateDisplay();
+        }
+
+        updateDisplay();
+    </script>
+
+</body>
+</html>
